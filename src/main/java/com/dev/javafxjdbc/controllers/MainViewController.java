@@ -1,5 +1,6 @@
-package com.dev.javafxjdbc;
+package com.dev.javafxjdbc.controllers;
 
+import com.dev.javafxjdbc.Main;
 import com.dev.javafxjdbc.util.Alerts;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
