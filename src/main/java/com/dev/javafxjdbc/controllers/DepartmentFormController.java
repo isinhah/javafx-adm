@@ -1,5 +1,6 @@
 package com.dev.javafxjdbc.controllers;
 
+import com.dev.javafxjdbc.model.entities.Department;
 import com.dev.javafxjdbc.util.Constraints;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -11,6 +12,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class DepartmentFormController implements Initializable {
+
+    private Department entity;
+
     @FXML
     private TextField txtId;
 
@@ -25,6 +29,10 @@ public class DepartmentFormController implements Initializable {
 
     @FXML
     private Button btCancel;
+
+    public void setDepartment(Department entity) {
+        this.entity = entity;
+    }
 
     @FXML
     public void onBtSaveAction() {
@@ -44,5 +52,13 @@ public class DepartmentFormController implements Initializable {
     private void initializeNodes() {
         Constraints.setTextFieldInteger(txtId);
         Constraints.setTextFieldMaxLength(txtName, 30);
+    }
+
+    public void updateFormData() {
+        if (entity == null) {
+            throw new IllegalStateException("Entity was null");
+        }
+        txtId.setText(String.valueOf(entity.getId()));
+        txtId.setText(entity.getName());
     }
 }
