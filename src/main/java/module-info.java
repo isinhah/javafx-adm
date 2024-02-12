@@ -1,6 +1,7 @@
 module com.dev.javafxjdbc {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.sql;
 
 
     opens com.dev.javafxjdbc to javafx.fxml, javafx.base;
