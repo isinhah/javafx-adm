@@ -1,6 +1,7 @@
 package com.dev.javafxjdbc.controllers;
 
 import com.dev.javafxjdbc.Main;
+import com.dev.javafxjdbc.listeners.DataChangeListener;
 import com.dev.javafxjdbc.model.entities.Department;
 import com.dev.javafxjdbc.model.services.DepartmentService;
 import com.dev.javafxjdbc.util.Alerts;
@@ -26,7 +27,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class DepartmentListController implements Initializable {
+public class DepartmentListController implements Initializable, DataChangeListener {
     private DepartmentService service;
 
     @FXML
@@ -86,6 +87,7 @@ public class DepartmentListController implements Initializable {
             DepartmentFormController controller = loader.getController();
             controller.setDepartment(obj);
             controller.setDepartmentService(new DepartmentService());
+            controller.subscribeDataChangeListener(this);
             controller.updateFormData();
 
             //Carrega a janela do formulário
@@ -99,5 +101,10 @@ public class DepartmentListController implements Initializable {
         } catch (IOException e) {
             Alerts.showAlert("IO Exception", "Error loading view", e.getMessage(), Alert.AlertType.ERROR);
         }
+    }
+
+    @Override
+    public void onDataChanged() {
+        updateTableView();
     }
 }
