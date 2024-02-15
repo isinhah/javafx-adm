@@ -3,7 +3,6 @@ package com.dev.javafxjdbc.controllers;
 import com.dev.javafxjdbc.Main;
 import com.dev.javafxjdbc.db.DbIntegrityException;
 import com.dev.javafxjdbc.listeners.DataChangeListener;
-import com.dev.javafxjdbc.model.entities.Department;
 import com.dev.javafxjdbc.model.entities.Seller;
 import com.dev.javafxjdbc.model.services.DepartmentService;
 import com.dev.javafxjdbc.model.services.SellerService;
